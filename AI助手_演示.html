@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界杯AI助手 · 演示页</title>
+<style>
+  :root{--navy:#13203a;--gold:#C8A24B;--bg:#0c1322;--card:#15213a;--line:#2b3a5a;--txt:#e9eef6;--mut:#93a4c0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding-bottom:80px}
+  header{background:linear-gradient(135deg,var(--navy),#080f1e);padding:16px 18px;border-bottom:3px solid var(--gold)}
+  header h1{font-size:20px}.upd{display:inline-block;margin-top:8px;background:var(--gold);color:var(--navy);font-weight:700;font-size:11px;padding:3px 11px;border-radius:20px}
+  nav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:6px;background:var(--navy);padding:9px 12px;border-bottom:1px solid var(--line)}
+  nav button{background:transparent;color:var(--mut);border:1px solid var(--line);padding:7px 13px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
+  nav button.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+  main{max-width:900px;margin:0 auto;padding:18px 14px}
+  section{display:none}section.show{display:block}
+  h2{font-size:17px;margin-bottom:8px;padding-left:9px;border-left:4px solid var(--gold)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+  .tip{color:var(--mut);font-size:13px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th{background:#1d2d4f;padding:7px}td{padding:7px;border-bottom:1px solid var(--line);text-align:center}
+  .gold{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <h1>2026世界杯 · 竞猜投注助手 <span style="font-size:13px;color:var(--mut)">(AI助手演示页)</span></h1>
+  <div class="upd" id="updTag">更新 2026-06-14 15:38（北京时间）｜演示数据，仅供测试AI助手 · 理性娱乐，未成年人禁止购彩</div>
+</header>
+<nav id="nav">
+  <button class="active" data-t="bet">🎯 竞猜投注</button>
+  <button data-t="combo">🧮 组合计算</button>
+  <button data-t="sched">📅 赛程比分</button>
+  <button data-t="stand">🏆 小组排名</button>
+  <button data-t="teams">🌍 球队</button>
+  <button data-t="prov">🏵 福建·浙江</button>
+  <button data-t="news">📰 新闻</button>
+</nav>
+<main>
+  <section id="bet" class="show"><h2>🎯 竞猜投注</h2>
+    <div class="card">演示样例：当前 16 场可投注（m9–m24）。<span class="gold">德国 vs 库拉索</span> 06-15 01:00（周一）：主胜 1.18 / 平 7.50 / 客胜 13.00（演示赔率，非真实）。</div>
+    <div class="tip">试着对 AI 说：「切到赛程比分页」「页面现在显示了什么」「找一下 德国」。</div>
+  </section>
+  <section id="combo"><h2>🧮 组合计算</h2><div class="card">演示：串关组合计算器（按目标收益枚举达标组合）。这里是占位内容。</div></section>
+  <section id="sched"><h2>📅 赛程比分</h2>
+    <div class="card"><table><tr><th>时间(北京)</th><th>对阵</th><th>比分/状态</th></tr>
+      <tr><td>06-14 12:00</td><td>澳大利亚 vs 土耳其</td><td class="gold">2-0 完</td></tr>
+      <tr><td>06-15 01:00</td><td>德国 vs 库拉索</td><td>未开赛</td></tr>
+      <tr><td>06-15 04:00</td><td>巴西 vs 摩洛哥</td><td>未开赛</td></tr></table></div>
+  </section>
+  <section id="stand"><h2>🏆 小组排名</h2><div class="card">A 组演示：墨西哥 3 分、韩国 3 分、捷克 0 分、南非 0 分。</div></section>
+  <section id="teams"><h2>🌍 球队</h2><div class="card">演示球队页：可选中下面这段文字测试「✦ 问AI」——<br>巴西队近期状态稳定，中前场组织能力强，但客场防守端偶有起伏；摩洛哥则以整体防守反击见长。</div></section>
+  <section id="prov"><h2>🏵 福建·浙江</h2><div class="card">演示：地方体彩玩法占位。</div></section>
+  <section id="news"><h2>📰 新闻</h2><div class="card">演示新闻：示例标题——「世界杯小组赛次轮前瞻」。</div></section>
+</main>
+<script>
+  // 精简版 go()，与正式面板一致：切换 nav 高亮 + section 显隐
+  function go(t){
+    document.querySelectorAll("#nav button").forEach(function(x){x.classList.toggle("active",x.dataset.t===t);});
+    document.querySelectorAll("section").forEach(function(s){s.classList.toggle("show",s.id===t);});
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  document.querySelectorAll("#nav button").forEach(function(b){b.onclick=function(){go(b.dataset.t);};});
+</script>
+<!-- 加载 AI 助手（与正式面板同一文件） -->
+<script src="世界杯AI助手.js"></script>
+</body>
+</html>

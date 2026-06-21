@@ -1,0 +1,40 @@
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 编辑器 / 临时文件 =====
+*.tmp
+*.bak
+*~
+.idx.tmp.html
+.index.tmp.html
+*.swp
+*.orig
+
+# ===== Office 临时锁文件 =====
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ===== 日志 =====
+*.log
+
+# ===== Claude / 会话内部文件(请勿提交) =====
+.claude/
+**/sessions/
+*.session
+
+# ===== 本地私密配置(如自填的 GLM Key、内网穿透 token 等,切勿提交) =====
+*.local
+.env
+.env.*
+secrets.*
+
+# ===== 可选:体积较大的历史快照(如不想入库可解除注释) =====
+# 2026世界杯实时面板_存档_*.html
